@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      media="screen and (min-width: 501px)"
+      rel="stylesheet"
+      type="text/css"
+      href="style-pc.css"
+    />
+    <link
+      media="screen and (max-width: 500px)"
+      rel="stylesheet"
+      type="text/css"
+      href="style-mob.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Article preview component</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="article-preview-component">
+        <div class="image-container"></div>
+        <div class="content-container">
+          <div class="headline">
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </div>
+          <div class="body-copy">
+            Ever been in a room and felt like something was missing? Perhaps it
+            felt slightly bare and uninviting. I’ve got some simple tips to help
+            you make any room feel complete.
+          </div>
+
+          <div class="content-footer">
+            <div class="author">
+              <div class="dp">
+                <img src="avatar-michelle.jpg" />
+              </div>
+              <div class="name-date">
+                <div class="name">Michelle Appleton</div>
+                <div class="date">28 Jun 2020</div>
+              </div>
+            </div>
+
+            <div class="share-btn" id="toggleButton">
+              <!-- <img src="images/icon-share.svg" /> -->
+            </div>
+          </div>
+
+          <div class="pop-up-box-container" id="hiddenDiv">
+            <div class="pop-rectangle">
+              Share
+              <img class="icons" src="icon-facebook.svg" />
+              <img class="icons" src="icon-twitter.svg" />
+              <img class="icons" src="icon-pinterest.svg" />
+            </div>
+            <div class="pop-triangle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // const toggleButton = document.getElementsById("toggleButton");
+      const toggleButton = document.querySelector(".share-btn");
+      const hiddenDiv = document.getElementById("hiddenDiv");
+
+      toggleButton.addEventListener("click", () => {
+        hiddenDiv.style.display = "block";
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !hiddenDiv.contains(event.target) &&
+          event.target !== toggleButton
+        ) {
+          hiddenDiv.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
